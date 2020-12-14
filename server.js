@@ -6,9 +6,12 @@ const morgan = require("morgan");
 //make env know where the config env file is
 dotenv.config({ path: "./config/config.env" });
 
+const transactions = require('./routes/transactions')
+
 const app = express();
 
-app.get("/", (req, res) => res.send("Hello"));
+//app.get("/", (req, res) => res.send("Hello"));
+app.use('/api/v1/transactions', transactions)
 
 const PORT = process.env.PORT || 5000;
 
